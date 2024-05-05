@@ -11,6 +11,7 @@ list(REMOVE_ITEM SOURCES ${OLD_SOURCES})
 include_directories("include")
 
 add_executable(${PROJECT_NAME} ${SOURCES})
+target_link_libraries(${PROJECT_NAME} gmp)
 
 set (EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 

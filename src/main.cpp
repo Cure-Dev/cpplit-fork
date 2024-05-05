@@ -32,6 +32,7 @@
 
 #include "utils/coding.hpp"
 
+#include "model/number.hpp"
 int main(int argc, char** args) {
 
     std::locale::global(std::locale(""));
@@ -99,7 +100,7 @@ int main(int argc, char** args) {
         }
 
         else if (command.is(L"test")) {
-            
+            test();
         }
 
         else if (command.is(L"pack")) {
