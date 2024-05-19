@@ -1,6 +1,7 @@
 /build
 /bin
 /dist
+/deps
 
 *.old
 *.old.cpp

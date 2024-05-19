@@ -1,7 +1,6 @@
 #pragma once
 
 #include "semantic/class.hpp"
-#include "semantic/builtins.hpp"
 #include "semantic/environment.hpp"
 
 #include "utils/path.hpp"

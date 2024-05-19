@@ -29,6 +29,9 @@ public:
 		if (dynamic_cast<semantic_function*> (callee) != NULL) { //
 			return (dynamic_cast<semantic_function*> (callee)) -> call(this->CALLER->eval(env, Runtime));
 		}
+		else if (auto call = dynamic_cast<semantic_class*> (callee); call != NULL) {//!
+			return dynamic_cast<semantic_function*> (call->members[L"call"]) -> call(this->CALLER->eval(env, Runtime));
+		}
 		else {
 			throw "cannot call";
 		}

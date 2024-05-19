@@ -1,5 +1,7 @@
 #pragma once
 
+#include "semantic/object.hpp"
+
 static class : public semantic_class {
 public:
 	semantic_node* get_member(std::wstring name) {

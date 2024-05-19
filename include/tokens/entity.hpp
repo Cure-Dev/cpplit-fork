@@ -32,15 +32,16 @@ public:
 	};
 };
 
-#include <regex>
 class token_string : public token_literal {
 public:
 	std::wstring VALUE;
 	token_string(std::wstring value, int begin, int end) : token_literal(begin, end), VALUE(value) {};
 
 	std::wstring view() {
-		std::wstring text = std::regex_replace(this->VALUE, std::wregex(L"\\n"), L"\\n");
-		return L"'" + text + L"'";
+/*		static std::map<wchar_t, std::wstring> replace_map = {
+			{ L'\n', L"`U+000A`"},
+		};*/
+		return L"'" + this->VALUE + L"'";
 	};
 };
 

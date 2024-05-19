@@ -4,6 +4,7 @@
 #include "parser/loop/parse_loop.hpp"
 #include "parser/check.hpp"
 
+#include "ast/statements/expr_statement.hpp"
 
 statement* parse_expr_statement(token_list& Token_list) {
 	expr* Expr = parse_expression(Token_list);

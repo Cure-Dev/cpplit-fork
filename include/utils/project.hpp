@@ -2,7 +2,9 @@
 
 #include <filesystem>
 
-#include "semantic/builtins.hpp"
+#include "semantic/builtin/io/output.hpp"
+#include "semantic/builtin/bool.hpp"
+#include "semantic/builtin/string.hpp"
 
 class project {
 public:
@@ -57,6 +59,20 @@ public:
 
 } mod_lit_io_output;
 
+static class : public module {
+public:
+	semantic_node* eval() {
+		return builtin_class_bool;
+	}
+} mod_bool;
+
+static class : public module {
+public:
+	semantic_node* eval() {
+		return builtin_class_string;
+	}
+} mod_string;
+
 static class : public library {
 public:
 	project* access(std::wstring name) {
@@ -74,6 +90,12 @@ public:
 	project* access(std::wstring name) {
 		if (name == L"io") {
 			return &lib_lit_io;
+		}
+		else if (name == L"bool") {
+			return &mod_bool;
+		}
+		else if (name == L"string") {
+			return &mod_string;
 		}
 		else {
 			throw L"no member named " + name;

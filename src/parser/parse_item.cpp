@@ -31,6 +31,7 @@ expr_entity* make_entity(token_entity* Token) {
 
 #include "parser/parse_import.hpp"
 #include "parser/namespace/parse_namespace.hpp"
+#include "parser/parse_func.hpp"
 
 expr* parse_miditem(token_list& Token_list) {
 	expr* result;
@@ -52,8 +53,12 @@ expr* parse_miditem(token_list& Token_list) {
 			result = parse_namespace(Token_list);
 		}
 
+		else if (kw->Type == token_keyword::type::FUNC) {
+			result = parse_func(Token_list);
+		}
+
 		else {
-			throw L"not expr kw";
+			throw "not expr kw";
 		}
 	}
 
